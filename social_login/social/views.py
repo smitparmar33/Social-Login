@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from .models import Order,Account
+# from ..social_login.settings import SOCIAL_AUTH_FACEBOOK_SCOPE
 @login_required
 def home(request):
 	ctx = {
@@ -18,6 +19,7 @@ def home(request):
 			'last_name': request.user.last_name,
 			'email': request.user.email
 		})
+		print(ctx)
 	if ctx['email']:
 		request.session['email']=ctx['email']
 		print(request.session['email'])
